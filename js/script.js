@@ -1,14 +1,27 @@
-const url = 'https://pokeapi.co/api/v2/pokemon/';
-let idpoke = document.querySelector('#pokemon').value
-fetch(url)
-.then((resp) => resp.json())
-.then(function(data) {
-  let pokeapi = data;
-  return pokeapi.map(function(poke) {
+const url = 'https://pokeapi.co/api/v2/pokemon/?limit=10';
+let idpoke = document.querySelector('#pokemon')
 
-    
-  })
-})
-.catch(function(error) {
-  console.log(error);
-});
+function showpoke(){
+    fetch(url)
+    .then((resp) => resp.json())
+    .then(function(data) {
+      let pokeapi = data.results;
+      console.log(pokeapi)
+      let option = document.createElement('option')
+      pokeapi.forEach(p => {
+
+        option.innerHTML = p.name;
+        idpoke.appendChild(option)
+
+        
+      });
+      
+            
+      
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+}
+
+showpoke()
