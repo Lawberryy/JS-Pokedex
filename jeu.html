@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Good Luck</title>
+</head>
+    <body onload="initNovel(800, 600);">
+         <div id="novelDiv">
+            <div style="position: absolute;
+                left:0; top: 0; z-index:-1">
+                 <img id="background0" src="images/empty.png">
+            </div>
+            <div style="position: absolute;
+                left:0; top: 0; z-index:-1">
+                <img id="background1" src="images/empty.png">
+            </div>
+            <div id="dialogDiv" style="z-index:100">
+            </div>
+        </div>
+       
+        
+        <button class="change-scene" onclick="initNovel(800, 450)" > Retour à la page d'accueil </button>
+
+    </body>
+</html>
+<script src="js/script.js"></script>
+<script src="js/visual_Novel.js"></script>
