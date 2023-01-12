@@ -1,17 +1,16 @@
-// const base_URL = 'https://pokeapi.co/api/v2/pokemon';
-// const first10Pokemon = '?limit=10';
-// const API_URL = base_URL + first10Pokemon;
 
-const pokedex = document.getElementById('pokedex');
+// const pokedex = document.getElementById('pokedex');
 const listPokemon = document.getElementById('list-pokemons');
 const divPokemonCards = document.getElementById('pokemon-cards');
 
 const btnShiny = document.getElementById('btn-shiny');
 
+let nbPokemon = 10;
+
 
 const GetPokemon = () => {
     const promises = []; // les arrays se rempliront au fur et à mesure
-    for (let i = 1; i <= 10; i++) {
+    for (let i = 1; i <= nbPokemon; i++) {
         // on récupère les données des 10 premiers pokemon pour l'affichage par défaut
         const urlPokemon = `https://pokeapi.co/api/v2/pokemon/${i}`;
         promises.push(fetch(urlPokemon).then((res) => res.json()));
@@ -45,13 +44,14 @@ const displayPokemon = (pokemon) => {
             (poke) => `
         <div class="pokemonCard">
             <img class="" src="${poke.image}"/>
-            <h2 class="">${poke.name}</h2>
+            <h2 class="">${poke.id}. ${poke.name}</h2>
             <p class="">Type: ${poke.type}</p>
             <!-- <p class="">Attacks: ${poke.move}</p> -->
-            <!-- <button class="btn-shiny">Shiny</button> -->
-            <!-- <div class="modalInfoPokemon">
-                <img src="${poke.image_shiny}"</img>
-            </div> -->
+            <span>Add to the team:</span>
+            <select name="" id="select-team">
+                <option value="team1">Team 1</option>
+                <option value="team2">Team 2</option>
+            </select>
         </div>
     `
         )
@@ -59,7 +59,7 @@ const displayPokemon = (pokemon) => {
     divPokemonCards.innerHTML = pokemonCardHTML;
 };
 
-GetPokemon();
+// GetPokemon();
 
 
 // ------------ display shiny function ----------------
@@ -72,6 +72,7 @@ function displayShiny(pokemon) {
             (shiny) => `
         <div class="shiny">
             <img src="${shiny.image_shiny}"</img>
+            <h2 class="">${shiny.name} shiny</h2>
         </div>
     `
         )
@@ -90,7 +91,27 @@ function hideShiny() {
         } else {
         null
         }
-
-    //if (btnShiny.style.backgroundColor ==)
-}
+    }
 // --------------- ---------------------
+
+// ajout de 20 pokemon au clic, en plus des 10 premiers
+function seeMorePokemon () {
+
+    nbPokemon = nbPokemon + 20;
+    console.log(nbPokemon);
+}
+const btnMorePokemon = document.getElementById('seeMorePokemon');
+
+btnMorePokemon.addEventListener('click', p => {
+    seeMorePokemon();
+
+    const textBtn = document.getElementById('textBtn');
+    if (textBtn.innerText == "Let's begin!"){
+        textBtn.innerText = "See more pokemon!";
+        } 
+
+    btnShiny.classList.remove('none');
+
+    const inputHowMany = document.querySelector('.howManyPokemon');
+    inputHowMany.classList.remove('none');
+})

@@ -13,16 +13,9 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    /* display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
-    /* grid-template-rows: 1fr 1fr; */
     gap: 30px;
-}
-#div-shiny {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .pokemonCard {
@@ -32,7 +25,23 @@
 }
 .shiny {
     border: rgba(255, 217, 0, 0.938) 10px solid;
-    
+}
+
+#btn-shiny {
+    background-color:  rgba(255, 217, 0, 0.938);
+    padding: 0.5rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 1rem;
+}
+
+#div-shiny {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 #seeMorePokemon {
@@ -47,6 +56,10 @@
 .div-seeMore {
     display: flex;
     justify-content: center;
+}
+.div-seeMore input {
+    width: 250px;
+    margin-right: 1rem;
 }
 
 .img-pokeball {

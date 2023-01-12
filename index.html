@@ -13,19 +13,18 @@
     <main id="pokedex">
         <div id="list-pokemons">
             <div id="pokemon-cards"></div>
-            <button id="btn-shiny" onclick="hideShiny()">Show shiny</button>
-            <div id="div-shiny" class="none">
-                
-            </div>
+            <button id="btn-shiny" class="btn-shiny none" onclick="hideShiny()">Show shiny</button>
+            <div id="div-shiny" class="none"></div>
         </div>
         <div class="div-seeMore">
-            <div id="seeMorePokemon">
-                <span>See more pokemon</span>
+            <input type="text" class="none howManyPokemon" value="" placeholder="How many pokemon do you want to add?">
+            <div id="seeMorePokemon" onclick="GetPokemon()">
+                <span id="textBtn">Let's begin!</span>
                 <img src="media/pokeball.svg" alt="img-pokeball" class="img-pokeball">    
             </div>
         </div>
     </main>
     
-    <script src="js/script_test.js"></script>
+    <script src="js/script-sd.js"></script>
 </body>
 </html>
