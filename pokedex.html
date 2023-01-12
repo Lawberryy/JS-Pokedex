@@ -7,34 +7,52 @@
     <title>Pokedex</title>
     <link rel="stylesheet" href="/css/style.css"/>
 </head>
-<body>
+<body class="pokedex_body">
     <div class="transition transition-1 is-active"></div>
 
+    <!-- the header -->
+
+    <header class="navbar">
+        <div>
+            <a href="/index.html" >
+                <button class="buttonStyle" id="quitButton">Quit</button>
+            </a>
+        </div>
+
+        <div class="search">
+            <form id="poke-form" name="poke-form" data-name="poke Form" method="get" class="search__form" aria-label="Email Form" abineguid="C148D6C27CEB43BEB12F648C3A624DEE">
+                <input type="text" class="search_input w-input" maxlength="256" name="name" data-name="Name" placeholder="Search Pokemon" id="name">
+                <!-- <div class="search_label">Use this input to search for any pokemon. In an instant.</div> -->
+            </form>
+        </div>
+        <div>
+            <a href="/pokedex.html">
+                <button class="buttonStyle" id="pokedexButton">Pokedex</button>
+            </a>
+            <a href="">
+                <button class="buttonStyle" id="mapButton">Map / Navigate ?</button>
+            </a>
+        </div>
+    </header>
+
+    <!-- filter -->
+
+    <section>
+        <div class="filter_container">
+
+        </div>
+
+    </section>
+
+
+    <!-- container poke cards -->
     <section>
         <div class="pokedex_container">
 
 
         </div>
-
-
-
-
     </section>
-    <header class="navbar">
-            <div>
-                <a href="/index.html" >
-                    <button class="buttonStyle" id="quitButton">Quit</button>
-                </a>
-            </div>
-            <div>
-                <a href="/pokedex.html">
-                    <button class="buttonStyle" id="pokedexButton">Pokedex</button>
-                </a>
-                <a href="">
-                    <button class="buttonStyle" id="mapButton">Map / Navigate ?</button>
-                </a>
-            </div>
-    </header>
+
 
     <script src="/js/script.js"></script>
 </body>
