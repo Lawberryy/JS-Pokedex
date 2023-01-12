@@ -43,7 +43,7 @@ h1 {
     background-color: black;
   }
 
-.buttonStart{
+.buttonStyle{
     align-items: center;
     appearance: none;
     background-color: #FCFCFD;
@@ -74,17 +74,31 @@ h1 {
     font-size: 18px;
 }
 
+a {
+    text-decoration: none;
+}
 
-.buttonStart:focus {
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem 1.5rem;
+    background-color: rgb(219, 42, 42);
+}
+
+#pokedexButton{
+    margin-right: 0.5rem;
+}
+
+.buttonStyle:focus {
   box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
 }
 
-.buttonStart:hover {
+.buttonStyle:hover {
   box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
   transform: translateY(-2px);
 }
 
-.buttonStart:active {
+.buttonStyle:active {
   box-shadow: #D6D6E7 0 3px 7px inset;
   transform: translateY(2px);
 }
@@ -101,7 +115,6 @@ h1 {
     display: flex;
 }
 
-
 #videoBack{
     width: 140vh;
     height: auto;
@@ -116,5 +129,40 @@ h1 {
 
 .first{
     background-color: white;
-
 }
+
+
+.containDisplay{
+    display: flex;
+    justify-content: center;
+}
+.gifDisplay_container{
+    background-color: #ffffff;
+    margin-bottom: 5vh;
+    padding: 5vh 8vh;
+    height: 80vh;
+}
+
+.gifDisplay{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+/* .transition-1{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    background-color: #4b2222;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s ease-out;
+}
+
+.transition-1.is_active{
+    opacity: 1;
+    pointer-events: all;
+} */
