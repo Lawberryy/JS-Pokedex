@@ -4,6 +4,10 @@
     margin: 0;
 }
 
+body {
+    position: relative;
+}
+
 #pokedex {
     display: flex;
     flex-direction: column;
@@ -69,4 +73,18 @@
 
 .none {
     display: none !important;
+}
+
+.info-bgm {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background-color: rgb(219, 42, 42);
+    color: white;
+    width: 120px;
+    padding: 0.7rem;
+    font-size: 12px;
+}
+.info-bgm p:first-child {
+    margin-bottom: 0.5rem;
 }

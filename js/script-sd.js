@@ -34,6 +34,8 @@ const GetPokemon = () => {
         btnShiny.addEventListener('click', p => {
             displayShiny(pokemon);
         })
+
+
     });
 };
 
@@ -137,19 +139,12 @@ btnMorePokemon.addEventListener('click', p => {
 let btnPlay = document.getElementById("play");
 let audio = new Audio("media/lake-theme.mp3");
 
-function playMusic(e) {
-    audio.play()
-
-    // if (e.keyCode == '13' && audio.play) {
-    //     audio.pause
-    // }
+function playMusic(event) {
+    if (event.code == 'Enter') {
+        audio.play()
+    }
+    if (event.code == 'Space') {
+        audio.pause()
+    }
 }
-btnPlay.addEventListener("keydown", playMusic);
-
-// function pauseMusic() {
-//     if (audio.play()) {
-//         audio.pause();
-//     } else if(!audio.play()) {
-//         audio.play();
-//     }
-// }
+document.body.addEventListener("keydown", playMusic);
