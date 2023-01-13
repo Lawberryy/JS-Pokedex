@@ -72,7 +72,7 @@ function displayShiny(pokemon) {
             (shiny) => `
         <div class="shiny">
             <img src="${shiny.image_shiny}"</img>
-            <h2 class="">${shiny.name} shiny</h2>
+            <h2 class="">${shiny.id}. ${shiny.name} shiny</h2>
         </div>
     `
         )
@@ -94,18 +94,11 @@ function hideShiny() {
     }
 // --------------- ---------------------
 
-// ajout de pokemon selon l'input.value de l'utlisateur, en plus des 10 premiers par défaut
+// -------- ajout de pokemon selon l'input.value de l'utlisateur, 
+// en plus des 10 premiers par défaut --------
 const btnMorePokemon = document.getElementById('seeMorePokemon');
 const inputHowMany = document.querySelector('.howManyPokemon');
 
-
-// function seeMorePokemon () {
-//     var valueInput = document.getElementById('in').value;
-//     console.log(valueInput);
-
-//     nbPokemon = nbPokemon + 20;
-//     console.log(nbPokemon);
-// }
 
 function seeMorePokemon () {
     var valueInput = document.getElementById('in').value;
@@ -127,3 +120,36 @@ btnMorePokemon.addEventListener('click', p => {
 
     inputHowMany.classList.remove('none');
 })
+
+// ça, ça n'affiche que 20 pokemon en plus à chaque click, mais ça fonctionne mieux
+
+// function seeMorePokemon () {
+//     var valueInput = document.getElementById('in').value;
+//     console.log(valueInput);
+
+//     nbPokemon = nbPokemon + 20;
+//     console.log(nbPokemon);
+// }
+
+
+// event au keyboard : play audio file
+
+let btnPlay = document.getElementById("play");
+let audio = new Audio("media/lake-theme.mp3");
+
+function playMusic(e) {
+    audio.play()
+
+    // if (e.keyCode == '13' && audio.play) {
+    //     audio.pause
+    // }
+}
+btnPlay.addEventListener("keydown", playMusic);
+
+// function pauseMusic() {
+//     if (audio.play()) {
+//         audio.pause();
+//     } else if(!audio.play()) {
+//         audio.play();
+//     }
+// }

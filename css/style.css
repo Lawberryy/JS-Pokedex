@@ -24,11 +24,11 @@
     cursor: pointer;
 }
 .shiny {
-    border: rgba(255, 217, 0, 0.938) 10px solid;
+    border: rgb(255, 217, 0) 10px solid;
 }
 
 #btn-shiny {
-    background-color:  rgba(255, 217, 0, 0.938);
+    background-color:  rgba(255, 217, 0);
     padding: 0.5rem;
     cursor: pointer;
     border: none;
