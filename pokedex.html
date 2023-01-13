@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body class="pokedex_body">
-    <div class="transition transition-1 is-active"></div>
+    <!-- <div class="transition transition-1 is-active"></div> -->
 
     <!-- the header -->
 
@@ -26,7 +26,6 @@
           data-name="poke Form"
           method="get"
           class="search__form"
-          aria-label="Email Form"
           abineguid="C148D6C27CEB43BEB12F648C3A624DEE"
         >
           <input
@@ -54,14 +53,24 @@
     <!-- filter -->
 
     <section>
+      <h2>Filtering type :</h2>
       <div class="filter_container"></div>
     </section>
+
+    <section>
+      <h2>Filtering generation :</h2>
+      <div class="filter_gen_container"></div>
+    </section>
+
+    <!-- <div class ="loader-wrapper">
+      <img src="/media/pikarun.gif" class="loader" alt="Pikachu run"></img>
+    </div> -->
 
     <!-- container poke cards -->
     <section id="pokedex-wrapper">
       <div class="pokedex_container"></div>
     </section>
 
-    <script src="/js/script.js"></script>
+    <script src="/js/hl-script.js"></script>
   </body>
 </html>

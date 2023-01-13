@@ -1,5 +1,5 @@
 let container = document.querySelector('.container');
-let url = 'https://pokeapi.co/api/v2/pokemon?limit=151';
+let url = 'https://pokeapi.co/api/v2/pokemon?limit=200';
 let pokedexWrapper = document.querySelector('#pokedex-wrapper');
 
 fetch(url)
@@ -83,34 +83,43 @@ function renderPokemon(pokemon) {
   typeContainer.classList.add('type_container');
   pokeWrapper.appendChild(typeContainer);
 
+  // console.log(pokemon.data.sprites.versions)
+
+  // carotte = pokemon.data.sprites.versions
+
+  // carotte.forEach((patate) =>{
+  //   patate.forEach(pomme => {
+  //     pomme = pomme[0]
+  //   });
+  // })
+
   pokemon.data.types.forEach((type) => {
+    // console.log(type)
     let pokeType = document.createElement('div');
     pokeType.classList.add('pokemon_type');
-    pokeType.classList.add(type.type.name);
+    pokeType.classList.add('--' + type.type.name);
     pokeType.innerHTML =
       type.type.name[0].toUpperCase() + type.type.name.slice(1);
     typeContainer.appendChild(pokeType);
     pokeWrapper.classList.add(type.type.name);
-  });
+  })
+  ;
+
+
+
+  // pokemon.data.sprites.versions.forEach((type) => {
+  //   let pokeGen = document.createElement('p');
+  //   pokeGen.innerHTML =
+  //     type.generations[0].toUpperCase() + type.generations.slice(1);
+  //   typeContainer.appendChild(pokeGen);
+  //   pokeWrapper.classList.add(type.generations);
+  // })
 
   pokedexContainer.appendChild(pokeWrapper);
 }
 
 getPoke();
 
-///video home page
-let videoHome = document.querySelector('#videoBack');
-let videoButton = document.querySelector('#videoButton');
-
-function pausing() {
-  if (videoHome.paused) {
-    videoHome.play();
-    videoButton.innerHTML = 'Pause the video';
-  } else {
-    videoHome.pause();
-    videoButton.innerHTML = 'Play the video';
-  }
-}
 
 // filter ///////
 
@@ -164,6 +173,72 @@ function getFilter() {
 }
 
 getFilter();
+
+
+////// filter generation 
+
+let filterGen = document.querySelector('.filter_gen_container');
+const urlGen = ('https://pokeapi.co/api/v2/generation');
+
+
+function getGen() {
+  fetch(urlGen)
+    .then((res) => res.json())
+    .then(async (data) => {
+      // console.log(data)
+      generations = data.results;
+      // console.log(gen)
+
+      generations.forEach((theGen) => {
+        let poke_filter = document.createElement('div');
+        poke_filter.classList.add('poke_filter');
+
+        let gen = document.createElement('div');
+        gen.classList.add('gen');
+
+        let pixel_button = document.createElement('button');
+        pixel_button.classList.add('pixel_button', 'gen_button' , `--${theGen.name}`);
+        pixel_button.innerHTML = theGen.name;
+
+        gen.appendChild(pixel_button);
+        poke_filter.appendChild(gen);
+        filterGen.appendChild(poke_filter);
+
+        pixel_button.addEventListener('click', () => {
+          pokedexWrapper.className = theGen.name;
+        });
+      });
+    });
+}
+
+getGen()
+
+
+///video home page
+let videoHome = document.querySelector('#videoBack');
+let videoButton = document.querySelector('#videoButton');
+
+function pausing() {
+  if (videoHome.paused) {
+    videoHome.play();
+    videoButton.innerHTML = 'Pause the video';
+  } else {
+    videoHome.pause();
+    videoButton.innerHTML = 'Play the video';
+  }
+}
+
+// document.querySelector('.loader').style.display="block";
+
+// let seconds = 10;
+
+// let countdown = setInterval(function(){
+//   seconds--;
+//   if(seconds<=0){
+//     clearInterval(countdown);
+//     document.querySelector('.loader').style.display="none";
+//   }
+// })
 
 // function filteredDisplay(pokeList){
 //   pokedexContainer.innerHTML = "";

@@ -135,6 +135,18 @@ a {
     background-color: white;
 }
 
+.loader-wrapper{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+}
+
+.loader{
+    height: 40%;
+    width: auto;
+}
 
 .containDisplay{
     display: flex;
@@ -153,32 +165,27 @@ a {
     object-fit: contain;
 }
 
-/* .transition-1{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 5;
-    background-color: #4b2222;
-    opacity: 0;
-    pointer-events: none;
-    transition: 0.5s ease-out;
+.type_container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 11.5vh;
 }
 
-.transition-1.is_active{
-    opacity: 1;
-    pointer-events: all;
-} */
 
 .pokemon_type {
     text-align: center;
+    border-radius: 0.2rem;
+    padding: 0.05rem 0.2rem;
+    color: #FCFCFD;
+    border: solid 2px;
+    
 }
 
 .pokedex_container{
     display: flex;
     flex-wrap: wrap;
-
+    justify-content: center;
 }
 
 .pokemons_wrapper{
@@ -235,7 +242,6 @@ a {
 
 .normal .pokemons_wrapper.normal  {
     display: block;
-    background-color: #A8A77A;
 }
 
 .fire .pokemons_wrapper{
@@ -481,3 +487,158 @@ a {
 .--shadow {
 background-color: #6A6A6A;
 }
+
+
+/* filter gens */
+
+.filter_gen_container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 2rem 2rem;
+}
+
+
+.generation-i .pokemons_wrapper{
+    display: none;
+}
+
+.generation-i .pokemons_wrapper.generation-i  {
+    display: block;
+}
+
+/* .fire .pokemons_wrapper{
+    display: none;
+}
+
+.fire .pokemons_wrapper.fire  {
+    display: block;
+}
+
+.water .pokemons_wrapper{
+    display: none;
+}
+
+.water .pokemons_wrapper.water  {
+    display: block;
+}
+
+.grass .pokemons_wrapper{
+    display: none;
+}
+
+.grass .pokemons_wrapper.grass  {
+    display: block;
+}
+
+.electric .pokemons_wrapper{
+    display: none;
+}
+
+.electric .pokemons_wrapper.electric  {
+    display: block;
+}
+
+.ice .pokemons_wrapper{
+    display: none;
+}
+
+.ice .pokemons_wrapper.ice  {
+    display: block;
+}
+
+.fighting .pokemons_wrapper{
+    display: none;
+}
+
+.fighting .pokemons_wrapper.fighting  {
+    display: block;
+}
+
+.poison .pokemons_wrapper{
+    display: none;
+}
+
+.poison .pokemons_wrapper.poison  {
+    display: block;
+}
+
+.ground .pokemons_wrapper{
+    display: none;
+}
+
+.ground .pokemons_wrapper.ground  {
+    display: block;
+}
+
+.flying .pokemons_wrapper{
+    display: none;
+}
+
+.flying .pokemons_wrapper.flying  {
+    display: block;
+}
+
+.psychic .pokemons_wrapper{
+    display: none;
+}
+
+.psychic .pokemons_wrapper.psychic  {
+    display: block;
+}
+
+.bug .pokemons_wrapper{
+    display: none;
+}
+
+.bug .pokemons_wrapper.bug  {
+    display: block;
+}
+
+.rock .pokemons_wrapper{
+    display: none;
+}
+
+.rock .pokemons_wrapper.rock  {
+    display: block;
+}
+
+.ghost .pokemons_wrapper{
+    display: none;
+}
+
+.ghost .pokemons_wrapper.ghost  {
+    display: block;
+}
+
+.dark .pokemons_wrapper{
+    display: none;
+}
+
+.dark .pokemons_wrapper.dark  {
+    display: block;
+}
+
+.dragon .pokemons_wrapper{
+    display: none;
+}
+
+.dragon .pokemons_wrapper.dragon  {
+    display: block;
+}
+
+.steel .pokemons_wrapper{
+    display: none;
+}
+
+.steel .pokemons_wrapper.steel  {
+    display: block;
+}
+
+.fairy .pokemons_wrapper{
+    display: none;
+}
+
+.fairy .pokemons_wrapper.fairy  {
+    display: block;
+} */
