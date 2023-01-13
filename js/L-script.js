@@ -1,4 +1,3 @@
-const url = 'https://pokeapi.co/api/v2/pokemon/?limit=10';
 let team = document.querySelector('#teamname')
 let result = document.querySelector('#teams')
 

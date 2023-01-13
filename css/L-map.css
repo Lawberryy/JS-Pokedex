@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    color: #ffffff;
+    height: 100vh;
+  }
+  
+  h1,
+  h2,
+  h4,
+  p {
+    text-align: center;
+    padding: 0 3rem;
+    padding-top: 20px;
+  }
+  
+  #map {
+    display: flex;
+    justify-content: center;
+    height: 60vh;
+  }
+  
+
+  #global{
+    display: inline-flex;
+    justify-content: center;
+    padding-left: 100px;
+    gap: 30px;
+  }
+
+  a{
+    text-decoration: none;
+    color: #ffffff;
+  }
+
+  .regions{
+    display: flex;
+    padding-left: 75%;    
+}
+
+.button{
+  background-color: red;
+}
