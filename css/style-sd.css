@@ -9,14 +9,16 @@ body {
 }
 
 #pokedex {
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
+    width: 90%;
+    margin-left: 5%;
 }
 
 #pokemon-cards {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    /* justify-content: center; */
     gap: 30px;
     margin-top: 2rem;
     margin-bottom: 2rem;
