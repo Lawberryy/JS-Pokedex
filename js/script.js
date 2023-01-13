@@ -1,12 +1,16 @@
 const poke_container = document.getElementById('poke_container');
-const pokemons_number = 5;
-
+const pokemons_number = 1;
 
 const fetchPokemons = async () => {
 	for (let i = 1; i <= pokemons_number; i++) {
 		await getPokemon(i);
 	}
 };
+/*const Pokemois = async () => {
+	for (let i = 0; i <= 0; i++) {
+		await getPokemon(i);
+	}
+};*/
 
 const getPokemon = async id => {
     const url =`https://pokeapi.co/api/v2/pokemon/${id}`;
@@ -15,6 +19,8 @@ const getPokemon = async id => {
     console.log(pokemon);
     createPokemonCard(pokemon)
   }
+  
+
   const createPokemonCard = (pokemon) => {
     const pokemonEl = document.createElement('div');
     pokemonEl.classList.add('pokemon');
@@ -33,13 +39,6 @@ const getPokemon = async id => {
 
   fetchPokemons();
 
-  const pokemons = async id => {
-    const get =`https://pokeapi.co/api/v2/pokemon/${id}`;
-    const res = await fetch(get);
-    const pok = await res.json();
-    console.log(pok);
-  }
-
 function findpokemons(search, pokemon){
 return pokemon.filter(pokemon =>{
     const regex = new RegExp(search, `gi` );
@@ -48,7 +47,7 @@ return pokemon.filter(pokemon =>{
 }
 
 function showresults(pokemon){
-    const tableresult = getPokemon(this.value.pokemons);
+    const tableresult = fetchPokemons(this.value.pokemons);
     const HTML =
     /*    <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}"
      <span>${pokemon.stats[0].type.name}</span> />*/ `
@@ -63,6 +62,8 @@ const result = document.querySelector('ul');
 
 input.addEventListener('change',showresults);
 input.addEventListener('keyup',showresults);
+
+
 
 
 
