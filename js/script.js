@@ -1,5 +1,5 @@
 const poke_container = document.getElementById('poke_container');
-const pokemons_number = 1;
+const pokemons_number = 5;
 
 
 const fetchPokemons = async () => {
@@ -28,33 +28,35 @@ const getPokemon = async id => {
     
     </div>`;
     pokemonEl.innerHTML = pokeInnerHTML;
-      poke_container.appendChild(pokemonEl);
+    poke_container.appendChild(pokemonEl);
   }
 
   fetchPokemons();
 
-  const pokemons = [];
-  const url =`https://pokeapi.co/api/v2/pokemon`;
-fetch(url)
-.then(blob => blob.json())
-.then(data => pokemons.push(...data.pokemon));
+  const pokemons = async id => {
+    const get =`https://pokeapi.co/api/v2/pokemon/${id}`;
+    const res = await fetch(get);
+    const pok = await res.json();
+    console.log(pok);
+  }
 
 function findpokemons(search, pokemon){
 return pokemon.filter(pokemon =>{
-    const reG = new RegExp(search, 'gi' );
-    return pokemon.name.match(reG)
+    const regex = new RegExp(search, `gi` );
+    return pokemon.name.match(regex)
 });
 }
 
-function showresults(){
-    const tableresult = fetchPokemons(this.value.pokemons);
-    const HTML = tableresult.map(
-        pokemon =>{
-            return`
-            <li>${pokemon.name}</li>`;
-        }
-    );
-    result.innerHTML = html;
+function showresults(pokemon){
+    const tableresult = getPokemon(this.value.pokemons);
+    const HTML =
+    /*    <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}"
+     <span>${pokemon.stats[0].type.name}</span> />*/ `
+    <li>
+    <span>${pokemon.name}</span>
+    <span>${pokemon.weight}</span>
+   </li>`;
+    tableresult.innerHTML = HTML;
     }
 const input = document.querySelector('input');
 const result = document.querySelector('ul');
