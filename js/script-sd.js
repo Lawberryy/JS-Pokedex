@@ -94,13 +94,26 @@ function hideShiny() {
     }
 // --------------- ---------------------
 
-// ajout de 20 pokemon au clic, en plus des 10 premiers
-function seeMorePokemon () {
+// ajout de pokemon selon l'input.value de l'utlisateur, en plus des 10 premiers par défaut
+const btnMorePokemon = document.getElementById('seeMorePokemon');
+const inputHowMany = document.querySelector('.howManyPokemon');
 
-    nbPokemon = nbPokemon + 20;
+
+// function seeMorePokemon () {
+//     var valueInput = document.getElementById('in').value;
+//     console.log(valueInput);
+
+//     nbPokemon = nbPokemon + 20;
+//     console.log(nbPokemon);
+// }
+
+function seeMorePokemon () {
+    var valueInput = document.getElementById('in').value;
+    console.log(valueInput);
+
+    nbPokemon = Number(nbPokemon) + Number(valueInput);
     console.log(nbPokemon);
 }
-const btnMorePokemon = document.getElementById('seeMorePokemon');
 
 btnMorePokemon.addEventListener('click', p => {
     seeMorePokemon();
@@ -112,6 +125,5 @@ btnMorePokemon.addEventListener('click', p => {
 
     btnShiny.classList.remove('none');
 
-    const inputHowMany = document.querySelector('.howManyPokemon');
     inputHowMany.classList.remove('none');
 })

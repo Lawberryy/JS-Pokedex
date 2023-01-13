@@ -33,6 +33,7 @@
     cursor: pointer;
     border: none;
     border-radius: 1rem;
+    font-weight: bold;
 }
 
 #div-shiny {
