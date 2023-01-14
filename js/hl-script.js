@@ -152,6 +152,10 @@ function getFilter() {
 
         pixel_button.addEventListener('click', () => {
           pokedexWrapper.className = filter.name;
+          
+          pokedexContainer.classList.remove('none');
+          const divPokeByDefault = document.getElementById('pokedex');
+          divPokeByDefault.classList.add('none');
         });
       });
     });

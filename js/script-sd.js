@@ -48,7 +48,6 @@ const displayPokemon = (pokemon) => {
             <img class="" src="${poke.image}"/>
             <h2 class="">${poke.id}. ${poke.name}</h2>
             <p class="">Type: ${poke.type}</p>
-            <!-- <p class="">Attacks: ${poke.move}</p> -->
             <span>Add to the team:</span>
             <select name="" id="select-team">
                 <option value="team1">Team 1</option>
@@ -114,7 +113,7 @@ btnMorePokemon.addEventListener('click', p => {
     seeMorePokemon();
 
     const textBtn = document.getElementById('textBtn');
-    if (textBtn.innerText == "Let's begin!"){
+    if (textBtn.innerText == "See pokemon by default"){
         textBtn.innerText = "See more pokemon!";
         } 
 
