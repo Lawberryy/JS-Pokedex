@@ -23,6 +23,7 @@ const GetPokemon = () => {
             name: result.name,
             image: result.sprites['front_default'],
             image_shiny: result.sprites['front_shiny'],
+            image_shiny_back: result.sprites['back_shiny'],
             type: result.types.map((type) => type.type.name).join(', '),
             // le join sert à séparer les types, ici par une virgule
             move: result.moves.map((move) => move.move.name).join(', '),
@@ -45,14 +46,24 @@ const displayPokemon = (pokemon) => {
         .map(
             (poke) => `
         <div class="pokemonCard">
-            <img class="" src="${poke.image}"/>
-            <h2 class="">${poke.id}. ${poke.name}</h2>
-            <p class="">Type: ${poke.type}</p>
-            <span>Add to the team:</span>
+            <div class="pokemonMainInfo">
+                <div class="pokemon_img-wrapper">
+                    <img class="" src="${poke.image}"/>
+                </div>
+                <div class="top_content">
+                    <div class="pokemon_id">#${poke.id}</div>
+                    <div>${poke.name}</div>
+                </div>
+            </div>
+            <div class="type_container">
+                <div class="pokemon_type --${poke.type}">${poke.type}</div>
+            </div>
+            
+            <!-- <span>Add to the team:</span>
             <select name="" id="select-team">
                 <option value="team1">Team 1</option>
                 <option value="team2">Team 2</option>
-            </select>
+            </select> -->
         </div>
     `
         )
@@ -73,6 +84,7 @@ function displayShiny(pokemon) {
             (shiny) => `
         <div class="shiny">
             <img src="${shiny.image_shiny}"</img>
+            <img src="${shiny.image_shiny_back}"</img>
             <h2 class="">${shiny.id}. ${shiny.name} shiny</h2>
         </div>
     `

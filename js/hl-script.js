@@ -1,5 +1,5 @@
 let container = document.querySelector('.container');
-let url = 'https://pokeapi.co/api/v2/pokemon?limit=200';
+let url = 'https://pokeapi.co/api/v2/pokemon?limit=1279';
 let pokedexWrapper = document.querySelector('#pokedex-wrapper');
 
 fetch(url)
