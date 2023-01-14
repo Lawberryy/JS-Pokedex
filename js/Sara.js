@@ -9,7 +9,6 @@ const getAllPokemons = async () => {
         pokemons.forEach(pokemon => {
             pokeList.push(pokemon.name)
 
-
         })
     })
 
@@ -51,15 +50,15 @@ const createPokemonCard = (pokemon) => {
 
 fetchPokemons();
 
-function findpokemons(search, pokemon){
+/* function findpokemons(search, pokemon){
   return pokemon.filter(pokemon =>{
       const regex = new RegExp(search, `gi` );
       return pokemon.name.match(regex)
   });
-}
+} */
 const showresults = async(pokemon) =>{
-  console.log(pokemon.explicitOriginalTarget.value)
-  let search = pokemon.explicitOriginalTarget.value
+  //console.log(pokemon.explicitOriginalTarget.value)
+  let search = document.querySelector('input').value
   let filteredPokemons = pokeList.filter(pokemon => pokemon.startsWith(search))
   console.log(filteredPokemons)
 
