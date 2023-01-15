@@ -50,7 +50,7 @@ function pokeville(){
       console.log(pokeapi)
       pokeapi.forEach(p => {
         let li = document.createElement('li')
-        li.innerHTML = "<p>" + p.pokemon_species + "</p>"  ;
+        li.innerHTML = "<p class>" + p.pokemon_species.name + "</p>"  ;
         pokevilles.appendChild(li)
       });        
       
