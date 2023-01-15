@@ -9,17 +9,166 @@
   </head>
   <body>
     <h1>Explore la map et capture les pokémons.</h1>
-    <h2 class="regions"> Arènes : </h2>
+    <h3> La Carte : </h3>
     <div id="global">
         <div id="map">
             <img src="assets/Map_Pokémon_Gold_&_Silver_FR.png" alt="map-region-johto" srcset="">
         </div>
         <div id="villes" onclick="pokeville()"></div>
+
+        
+
     </div>
-    <div id="pokémons"></div>
-    <div id="pokémons"></div>
-    <div id="pokémons"></div>
-    <div id="pokémons"></div>
+    <h3> Toutes les régions : </h3>
+    <div class="tab">
+      <button class="tablinks" onclick="openCity(event, 'Forest')">Foret</button>
+      <button class="tablinks" onclick="openCity(event, 'Field')">Champs</button>
+      <button class="tablinks" onclick="openCity(event, 'Mountain')">Montagne</button>
+      <button class="tablinks" onclick="openCity(event, 'Pond')">Etang</button>
+      <button class="tablinks" onclick="openCity(event, 'Sea')">Ocean</button>
+
+    </div>
+
+
+    <div id="Forest" class="tabcontent">
+      <script>
+
+        const url1 = 'https://pokeapi.co/api/v2/pal-park-area/1';
+        let pokevilles = document.getElementById('Forest')
+
+
+        fetch(url1)
+        .then((resp) => resp.json())
+        .then(function(data) {
+          let pokeapi = data.pokemon_encounters;
+          pokeapi.forEach(p => {
+            let ul = document.createElement('ul')
+            ul.innerHTML = "<p>" + p.pokemon_species.name + "</p>"  ;
+            pokevilles.appendChild(ul)
+          });        
+          
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+      
+
+      </script>
+
+    </div>
+    
+    <div id="Field" class="tabcontent">
+
+      <script>
+
+        const url2 = 'https://pokeapi.co/api/v2/pal-park-area/2';
+        let pokevilles1 = document.getElementById('Field')
+
+
+        fetch(url2)
+        .then((resp) => resp.json())
+        .then(function(data) {
+          let pokeapi = data.pokemon_encounters;
+          pokeapi.forEach(p => {
+            let ul = document.createElement('ul')
+            ul.innerHTML = "<p>" + p.pokemon_species.name + "</p>"  ;
+            pokevilles1.appendChild(ul)
+          });        
+          
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+      
+
+      </script>
+      
+    </div>
+    
+    <div id="Mountain" class="tabcontent">
+      <script>
+
+        const url3 = 'https://pokeapi.co/api/v2/pal-park-area/3';
+        let pokevilles2 = document.getElementById('Mountain')
+
+
+        fetch(url3)
+        .then((resp) => resp.json())
+        .then(function(data) {
+          let pokeapi = data.pokemon_encounters;
+          pokeapi.forEach(p => {
+            let ul = document.createElement('ul')
+            ul.innerHTML = "<p>" + p.pokemon_species.name + "</p>"  ;
+            pokevilles2.appendChild(ul)
+          });        
+          
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+      
+
+      </script>
+    </div>
+
+    <div id="Pond" class="tabcontent">
+
+      <script>
+
+        const url4 = 'https://pokeapi.co/api/v2/pal-park-area/4';
+        let pokevilles3 = document.getElementById('Pond')
+
+
+        fetch(url4)
+        .then((resp) => resp.json())
+        .then(function(data) {
+          let pokeapi = data.pokemon_encounters;
+          pokeapi.forEach(p => {
+            let ul = document.createElement('ul')
+            ul.innerHTML = "<p>" + p.pokemon_species.name + "</p>"  ;
+            pokevilles3.appendChild(ul)
+          });        
+          
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+      
+
+      </script>
+      
+    </div>
+
+    <div id="Sea" class="tabcontent">
+
+      <script>
+
+        const url5 = 'https://pokeapi.co/api/v2/pal-park-area/5';
+        let pokevilles4 = document.getElementById('Sea')
+
+
+        fetch(url5)
+        .then((resp) => resp.json())
+        .then(function(data) {
+          let pokeapi = data.pokemon_encounters;
+          pokeapi.forEach(p => {
+            let ul = document.createElement('ul')
+            ul.innerHTML = "<p>" + p.pokemon_species.name + "</p>"  ;
+            pokevilles4.appendChild(ul)
+          });        
+          
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+      
+
+      </script>
+      
+    </div>
+
+
+
 
 
 
