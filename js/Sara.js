@@ -1,5 +1,5 @@
-const poke_container = document.getElementById('poke_container');
-const pokemons_number = 2;
+ const poke_container = document.getElementById('poke_container');
+const pokemons_number = 2; 
 var pokeList = []
 const getAllPokemons = async () => {
     let res = await fetch("https://pokeapi.co/api/v2/pokemon/?limit=1279")
@@ -16,7 +16,7 @@ const getAllPokemons = async () => {
 getAllPokemons()
 
 
-const fetchPokemons = async () => {
+const mons = async () => {
     /* console.log('salut'); */
     for (let i = 1; i <= pokemons_number; i++) {
         await getPokemon(i);
@@ -48,7 +48,7 @@ const createPokemonCard = (pokemon) => {
   poke_container.appendChild(pokemonEl);
 }
 
-fetchPokemons();
+mons();
 
 /* function findpokemons(search, pokemon){
   return pokemon.filter(pokemon =>{
@@ -81,7 +81,6 @@ const showresults = async(pokemon) =>{
       <li>
           <img src="${pokemonData.sprites.front_default}" alt="${pokemonData.name}"
           <span>${pokemonData.name}</span>
-          
       </li>`;
           result.insertAdjacentHTML("beforeend", HTML);
       }
@@ -89,7 +88,7 @@ const showresults = async(pokemon) =>{
 
   // console.log(pokemonData);
 
-  //const tableresult = fetchPokemons(this.value.pokemons);
+  //const tableresult = mons(this.value.pokemons);
 
 }
 const input = document.querySelector('input');
