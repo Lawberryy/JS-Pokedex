@@ -47,25 +47,38 @@ h1 {
     background-color: black;
   }
 .listing{
-    position: fixed;
     display: flex;
-    overflow: visible;
-    z-index: 10;
-    width: 308px;
+    width: 310px;
+    height: auto;
     background-color: #ffffff;
+    border: 2px #0b0b0c solid;
+    position: absolute;
+    text-align: left;
+    z-index: 200;
+    cursor: default;
 }
+.listing ul{
+    width: 308px;
+    
+}
+
 .listing ul li{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-self: center;
     color:rgb(29, 3, 8);
+    padding: 20%; 
+    border: 1px #0b0b0c solid;
+    
 }
 .listing ul li img{
-    width: 80px;
-    height: 80px;
+    width: 35%;
+    height: 35%;
 }
 .listing ul li p{
-    padding-top: 10%;
+    margin-top: 10px;
+    padding: 10px;
+    justify-items: center;
 }
 
 .buttonStyle, .pixel_button{

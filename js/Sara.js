@@ -80,8 +80,8 @@ const showresults = async(pokemon) =>{
           /*<span>${pokemon.stats[0].type.name}</span> />*/ `
       <li>
           <img src="${pokemonData.sprites.front_default}" alt="${pokemonData.name}"
-          <p>${pokemonData.name}</p>
-          <span>${pokemonData.weight}g</span>
+          <span>${pokemonData.name}</span>
+          
       </li>`;
           result.insertAdjacentHTML("beforeend", HTML);
       }
