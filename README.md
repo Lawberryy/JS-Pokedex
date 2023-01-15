@@ -20,7 +20,7 @@ We are Lynda&Co and are delighted to present our project totally coded under Jav
 
 :memo: This is a Pokedex in which you can search for an incalculable number of pokémon sorted by generation, type and evolution. You can use 
 Advanced Pokémon search by type, weakness, talent and much more! 
-Therefore, it will be possible to explore a map in which you can find all pokémon from all regions. : memo:
+Therefore, it will be possible to explore a map in which you can find all pokémon from all regions. :memo:
 
 For the visual part, the style was done mainly in CSS. ✨
 
