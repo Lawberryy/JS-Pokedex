@@ -8,8 +8,8 @@ body{
     flex-direction: column;
     align-items: center;
     border: 5px #0f1380 solid;
-    height: auto;
-    width: 200px;
+    height: 10;
+    width: 250px;
     
 }
 .pokemon::after{
@@ -39,7 +39,7 @@ body{
     color: rgb(11, 5, 33);
     position: relative;
   }
-  header .menu li a::after {
+   a::after {
     position: absolute;
     bottom: 2px;
     right: 0;
@@ -49,5 +49,8 @@ body{
     background-color: rgba(215, 214, 153, 0.7);
     transition: 0.5s;
   }
+h3{
+  display: flex;
+}
 
  

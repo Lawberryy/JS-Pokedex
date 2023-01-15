@@ -37,7 +37,10 @@
         placeholder="search pokemon"
         id="name"
         >
-        <ul/>
+        <div class="listing">
+          <ul/>
+        </div>
+        
           <!-- <div class="search_label">Use this input to search for any pokemon. In an instant.</div> -->
         </form>
 
@@ -49,18 +52,11 @@
         <a href="sara.html">
           <button>pktest</button>
         </a>
-        <select 
-                type="text" 
-                name="name" 
-                id="name" 
-                maxlength="210"
-                class="search_input w-input" 
-                data-name="Name"
-                placeholder="filter by">
-          <option value="id">numéro du pokedex</option>
-          <option value="size">taille</option>
-          <option value="weight">poids</option>
-          <option value="stats">statistiques</option>
+        <select type="text" name="name" id="name" maxlength="256" class="search_input w-input" data-name="Name" placeholder="filter by">
+          <option value="id" onclick="Show()" >pokemon's number</option>
+          <option value="size" onclick="Show()" >pokemon's height</option>
+          <option value="weight" onclick="Show()" >pokemon's weight</option>
+          <option value="stats" onclick="Show()" >pokemon's stats</option>
          </select>
         
          

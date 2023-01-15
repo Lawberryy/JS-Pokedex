@@ -17,10 +17,10 @@ getAllPokemons()
 
 
 const fetchPokemons = async () => {
-    console.log('salut');
+    /* console.log('salut'); */
     for (let i = 1; i <= pokemons_number; i++) {
         await getPokemon(i);
-        console.log('salut');
+        /* console.log('salut'); */
     }
 };
 const getPokemon = async id => {
@@ -77,11 +77,11 @@ const showresults = async(pokemon) =>{
           let res = await fetch(url);
           let pokemonData = await res.json();
           let HTML =
-              /*    <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}"
-               <span>${pokemon.stats[0].type.name}</span> />*/ `
+          /*<span>${pokemon.stats[0].type.name}</span> />*/ `
       <li>
-          <span>${pokemonData.name}</span>
-          <span>${pokemonData.weight}</span>
+          <img src="${pokemonData.sprites.front_default}" alt="${pokemonData.name}"
+          <p>${pokemonData.name}</p>
+          <span>${pokemonData.weight}g</span>
       </li>`;
           result.insertAdjacentHTML("beforeend", HTML);
       }
