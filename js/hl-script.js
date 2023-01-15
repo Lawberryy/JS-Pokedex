@@ -1,20 +1,20 @@
 let container = document.querySelector('.container');
-let url = 'https://pokeapi.co/api/v2/pokemon?limit=200';
+let url = 'https://pokeapi.co/api/v2/pokemon?limit=259';
 let pokedexWrapper = document.querySelector('#pokedex-wrapper');
 
-fetch(url)
-  .then((r) => r.json())
-  .then(async (d) => {
-    const pokemons = d.results;
+// fetch(url)
+//   .then((r) => r.json())
+//   .then(async (d) => {
+//     const pokemons = d.results;
 
-    for (const pokemon of pokemons) {
-      pokemon.data = await fetch(pokemon.url).then((response) =>
-        response.json()
-      );
-      // pokemons_data.push(pokemon.data);
-      // console.log (pokemons_data)
-    }
-  });
+//     for (const pokemon of pokemons) {
+//       pokemon.data = await fetch(pokemon.url).then((response) =>
+//         response.json()
+//       );
+//       // pokemons_data.push(pokemon.data);
+//       // console.log (pokemons_data)
+//     }
+//   });
 
 ////////////////////////////////
 
@@ -104,17 +104,6 @@ function renderPokemon(pokemon) {
     pokeWrapper.classList.add(type.type.name);
   })
   ;
-
-
-
-  // pokemon.data.sprites.versions.forEach((type) => {
-  //   let pokeGen = document.createElement('p');
-  //   pokeGen.innerHTML =
-  //     type.generations[0].toUpperCase() + type.generations.slice(1);
-  //   typeContainer.appendChild(pokeGen);
-  //   pokeWrapper.classList.add(type.generations);
-  // })
-
   pokedexContainer.appendChild(pokeWrapper);
 }
 
@@ -152,24 +141,13 @@ function getFilter() {
 
         pixel_button.addEventListener('click', () => {
           pokedexWrapper.className = filter.name;
+          
+          pokedexContainer.classList.remove('none');
+          const divPokeByDefault = document.getElementById('pokedex');
+          divPokeByDefault.classList.add('none');
         });
       });
     });
-
-  // .then(function () {
-  //   let typeButton = document.querySelectorAll('.type_button');
-
-  //   typeButton.forEach((bouton) => {
-  //     bouton.addEventListener('click', (e) => {
-  //       let type_filtered = bouton.innerHTML;
-  //       filterPoke(pokemons_data, type_filtered);
-  //       //   for (const pokemonTest of pokemons_data){
-  //       //     console.log('patate', pokemonTest)
-
-  //       // }
-  //     });
-  //   });
-  // });
 }
 
 getFilter();
@@ -181,37 +159,37 @@ let filterGen = document.querySelector('.filter_gen_container');
 const urlGen = ('https://pokeapi.co/api/v2/generation');
 
 
-function getGen() {
-  fetch(urlGen)
-    .then((res) => res.json())
-    .then(async (data) => {
-      // console.log(data)
-      generations = data.results;
-      // console.log(gen)
+// function getGen() {
+//   fetch(urlGen)
+//     .then((res) => res.json())
+//     .then(async (data) => {
+//       // console.log(data)
+//       generations = data.results;
+//       // console.log(gen)
 
-      generations.forEach((theGen) => {
-        let poke_filter = document.createElement('div');
-        poke_filter.classList.add('poke_filter');
+//       generations.forEach((theGen) => {
+//         let poke_filter = document.createElement('div');
+//         poke_filter.classList.add('poke_filter');
 
-        let gen = document.createElement('div');
-        gen.classList.add('gen');
+//         let gen = document.createElement('div');
+//         gen.classList.add('gen');
 
-        let pixel_button = document.createElement('button');
-        pixel_button.classList.add('pixel_button', 'gen_button' , `--${theGen.name}`);
-        pixel_button.innerHTML = theGen.name;
+//         let pixel_button = document.createElement('button');
+//         pixel_button.classList.add('pixel_button', 'gen_button' , `--${theGen.name}`);
+//         pixel_button.innerHTML = theGen.name;
 
-        gen.appendChild(pixel_button);
-        poke_filter.appendChild(gen);
-        filterGen.appendChild(poke_filter);
+//         gen.appendChild(pixel_button);
+//         poke_filter.appendChild(gen);
+//         filterGen.appendChild(poke_filter);
 
-        pixel_button.addEventListener('click', () => {
-          pokedexWrapper.className = theGen.name;
-        });
-      });
-    });
-}
+//         pixel_button.addEventListener('click', () => {
+//           pokedexWrapper.className = theGen.name;
+//         });
+//       });
+//     });
+// }
 
-getGen()
+// getGen()
 
 
 ///video home page
@@ -228,49 +206,45 @@ function pausing() {
   }
 }
 
-// document.querySelector('.loader').style.display="block";
 
-// let seconds = 10;
 
-// let countdown = setInterval(function(){
-//   seconds--;
-//   if(seconds<=0){
-//     clearInterval(countdown);
-//     document.querySelector('.loader').style.display="none";
-//   }
-// })
 
-// function filteredDisplay(pokeList){
-//   pokedexContainer.innerHTML = "";
+let gen1 = document.querySelector('#gen1');
+let gen2 = document.querySelector('#gen2');
+let gen3 = document.querySelector('#gen3');
+let gen4 = document.querySelector('#gen4');
+let gen5 = document.querySelector('#gen5');
+let gen6 = document.querySelector('#gen6');
+let gen7 = document.querySelector('#gen7');
+let gen8 = document.querySelector('#gen8');
 
-//   pokeList.forEach(pokemon => {
-//       renderPokemon(pokemon)
-//       return
-//     }
-//   )
-// }
+let allGen = [gen1,gen2,gen3,gen4,gen5,gen6,gen7,gen8]
 
-// function filterPoke(array, type) {
-//   pokedexContainer.innerHTML = '';
+let limit = 151;
+let offset = 0;
 
-//   array = Object.values(array).filter(
-//     (pokemon) => pokemon.types[0].type.name === type
-//   );
+function fetchPokemons(gen) {
 
-//   array.forEach((pokemon) => {
-//     renderPokemon(pokemon);
-//   });
+  console.log(gen)
+  fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`)
+  .then(response => response.json())
+  .then(data => {
 
-//   return array;
-// }
 
-// function filterChange(){
-//   console.log('AAAAA')
-
-//   pokedexContainer.innerHTML = "";
-
-//   // typeButton.forEach((e)=> {
-//   //   console.log(filter.srcElement.InnerText)
-//   // })
-
-// }
+    data.results.forEach(pokemon => {
+      // console.log(pokemon)
+          if (pokemon.url.includes(`/${gen}`)) {
+            data.results.forEach((pokemon) => {
+              renderPokemon(pokemon);
+            });
+          }
+      })
+  });
+}
+allGen.forEach(function(genButton){
+  genButton.addEventListener("click", function() {
+      let gen = genButton.id.substring(3);
+      // pokedexContainer.innerHTML = "";
+      fetchPokemons(gen);
+  });
+});

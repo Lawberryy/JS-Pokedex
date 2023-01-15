@@ -1,8 +1,3 @@
-    const url = 'https://pokeapi.co/api/v2/pal-park-area/';
-    const url1 = 'https://pokeapi.co/api/v2/pal-park-area/1/';
-    const map = document.querySelector("#map");
-    let villes = document.querySelector('#villes')
-    let pokevilles = document.querySelector('#pokémons')
     let zoom = 1;
 
     const ZOOM_SPEED = 0.1;
@@ -17,50 +12,37 @@
     
     });
 
+
+    // TAB MAP 
+
+    function openCity(evt, cityName) {
+      var i, tabcontent, tablinks;
+    
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+    
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+
+      }
+
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+    
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+
   
-function Showregion(){
 
-    fetch(url)
-    .then((resp) => resp.json())
-    .then(function(data) {
-      let pokeapi = data.results;
-      console.log(pokeapi)
-      pokeapi.forEach(p => {
-        let ul = document.createElement('ul')
-        ul.innerHTML = "<button onclick='pokeville()' >" + p.name + "</button>" ;
-        villes.appendChild(ul)
-      });        
-      
-    })
-    .catch(function(error) {
-      console.log(error);
-    });
 
-}
 
-Showregion()
 
-function pokeville(){
-
-    fetch(url1)
-    .then((resp) => resp.json())
-    .then(function(data) {
-      let pokeapi = data.names;
-
-      pokeapi.forEach(p => {
-        let ul = document.createElement('ul')
-        ul.innerHTML = "<p>" + p.pokemon_spieces + "</p>"  ;
-        pokevilles.appendChild(ul)
-      });        
-      
-    })
-    .catch(function(error) {
-      console.log(error);
-    });
-
-}
-
-pokeville() 
     
 
 
