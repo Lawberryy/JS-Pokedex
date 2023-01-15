@@ -1,6 +1,11 @@
 let container = document.querySelector('.container');
+<<<<<<< HEAD
 let url = 'https://pokeapi.co/api/v2/pokemon?limit=259';
+=======
+let url = 'https://pokeapi.co/api/v2/pokemon?limit=1008';
+>>>>>>> origin/dev
 let pokedexWrapper = document.querySelector('#pokedex-wrapper');
+let loader = document.querySelector('.loader-wrapper')
 
 // fetch(url)
 //   .then((r) => r.json())
@@ -20,6 +25,9 @@ let pokedexWrapper = document.querySelector('#pokedex-wrapper');
 
 // console.log(pokemons_data);
 
+loader.style.display = "";
+
+
 function getPoke() {
   fetch(url)
     .then((r) => r.json())
@@ -33,6 +41,7 @@ function getPoke() {
       }
       
       pokemons.forEach((pokemon) => {
+        loader.style.display = "none";
         renderPokemon(pokemon);
       });
     });
@@ -82,16 +91,6 @@ function renderPokemon(pokemon) {
   let typeContainer = document.createElement('div');
   typeContainer.classList.add('type_container');
   pokeWrapper.appendChild(typeContainer);
-
-  // console.log(pokemon.data.sprites.versions)
-
-  // carotte = pokemon.data.sprites.versions
-
-  // carotte.forEach((patate) =>{
-  //   patate.forEach(pomme => {
-  //     pomme = pomme[0]
-  //   });
-  // })
 
   pokemon.data.types.forEach((type) => {
     // console.log(type)
