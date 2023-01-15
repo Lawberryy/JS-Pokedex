@@ -47,10 +47,10 @@ function pokeville(){
     .then((resp) => resp.json())
     .then(function(data) {
       let pokeapi = data.pokemon_encounters;
-      console.log(pokeapi)
       pokeapi.forEach(p => {
         let li = document.createElement('li')
-        li.innerHTML = "<p class>" + p.pokemon_species.name + "</p>"  ;
+        let button = document.createElement('button')
+        li.innerHTML = "<p class='pokeregions'>" + p.pokemon_species.name + "</p>" ;
         pokevilles.appendChild(li)
       });        
       
