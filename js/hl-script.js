@@ -1,5 +1,5 @@
 let container = document.querySelector('.container');
-let url = 'https://pokeapi.co/api/v2/pokemon?limit=1279';
+let url = 'https://pokeapi.co/api/v2/pokemon?limit=259';
 let pokedexWrapper = document.querySelector('#pokedex-wrapper');
 
 fetch(url)
@@ -185,37 +185,37 @@ let filterGen = document.querySelector('.filter_gen_container');
 const urlGen = ('https://pokeapi.co/api/v2/generation');
 
 
-function getGen() {
-  fetch(urlGen)
-    .then((res) => res.json())
-    .then(async (data) => {
-      // console.log(data)
-      generations = data.results;
-      // console.log(gen)
+// function getGen() {
+//   fetch(urlGen)
+//     .then((res) => res.json())
+//     .then(async (data) => {
+//       // console.log(data)
+//       generations = data.results;
+//       // console.log(gen)
 
-      generations.forEach((theGen) => {
-        let poke_filter = document.createElement('div');
-        poke_filter.classList.add('poke_filter');
+//       generations.forEach((theGen) => {
+//         let poke_filter = document.createElement('div');
+//         poke_filter.classList.add('poke_filter');
 
-        let gen = document.createElement('div');
-        gen.classList.add('gen');
+//         let gen = document.createElement('div');
+//         gen.classList.add('gen');
 
-        let pixel_button = document.createElement('button');
-        pixel_button.classList.add('pixel_button', 'gen_button' , `--${theGen.name}`);
-        pixel_button.innerHTML = theGen.name;
+//         let pixel_button = document.createElement('button');
+//         pixel_button.classList.add('pixel_button', 'gen_button' , `--${theGen.name}`);
+//         pixel_button.innerHTML = theGen.name;
 
-        gen.appendChild(pixel_button);
-        poke_filter.appendChild(gen);
-        filterGen.appendChild(poke_filter);
+//         gen.appendChild(pixel_button);
+//         poke_filter.appendChild(gen);
+//         filterGen.appendChild(poke_filter);
 
-        pixel_button.addEventListener('click', () => {
-          pokedexWrapper.className = theGen.name;
-        });
-      });
-    });
-}
+//         pixel_button.addEventListener('click', () => {
+//           pokedexWrapper.className = theGen.name;
+//         });
+//       });
+//     });
+// }
 
-getGen()
+// getGen()
 
 
 ///video home page
@@ -232,49 +232,43 @@ function pausing() {
   }
 }
 
-// document.querySelector('.loader').style.display="block";
+let gen1 = document.querySelector('#gen1');
+let gen2 = document.querySelector('#gen2');
+let gen3 = document.querySelector('#gen3');
+let gen4 = document.querySelector('#gen4');
+let gen5 = document.querySelector('#gen5');
+let gen6 = document.querySelector('#gen6');
+let gen7 = document.querySelector('#gen7');
+let gen8 = document.querySelector('#gen8');
 
-// let seconds = 10;
+let allGen = [gen1,gen2,gen3,gen4,gen5,gen6,gen7,gen8]
 
-// let countdown = setInterval(function(){
-//   seconds--;
-//   if(seconds<=0){
-//     clearInterval(countdown);
-//     document.querySelector('.loader').style.display="none";
-//   }
-// })
+let limit = 151;
+let offset = 0;
 
-// function filteredDisplay(pokeList){
-//   pokedexContainer.innerHTML = "";
+function fetchPokemons(gen) {
 
-//   pokeList.forEach(pokemon => {
-//       renderPokemon(pokemon)
-//       return
-//     }
-//   )
-// }
+  
+  fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`)
+  .then(response => response.json())
+  .then(data => {
 
-// function filterPoke(array, type) {
-//   pokedexContainer.innerHTML = '';
 
-//   array = Object.values(array).filter(
-//     (pokemon) => pokemon.types[0].type.name === type
-//   );
 
-//   array.forEach((pokemon) => {
-//     renderPokemon(pokemon);
-//   });
 
-//   return array;
-// }
-
-// function filterChange(){
-//   console.log('AAAAA')
-
-//   pokedexContainer.innerHTML = "";
-
-//   // typeButton.forEach((e)=> {
-//   //   console.log(filter.srcElement.InnerText)
-//   // })
-
-// }
+    data.results.forEach(pokemon => {
+          if (pokemon.url.includes(`generation/${gen}`)) {
+            data.results.forEach((pokemon) => {
+              renderPokemon(pokemon);
+            });
+          }
+      });
+  });
+}
+allGen.forEach(function(genButton){
+  genButton.addEventListener("click", function() {
+      let gen = genButton.id.substring(3);
+      pokedexContainer.innerHTML = "";
+      fetchPokemons(gen);
+  });
+});
