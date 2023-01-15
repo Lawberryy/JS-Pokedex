@@ -1,6 +1,6 @@
 @font-face {
     font-family: "pixel" ;
-    src: url(/font/LLPIXEL3.ttf);
+    src: url(../font/LLPIXEL3.ttf);
 }
 
 * {
@@ -16,6 +16,7 @@ html{
 body{
     width: 100%;
     height: 100%;
+    background-color: black;
 }
 
 /* .first{
@@ -43,9 +44,6 @@ h1 {
     z-index: 2;
   }
   
-  body{
-    background-color: black;
-  }
 .listing{
     display: flex;
     width: 310px;
@@ -223,7 +221,7 @@ a {
 }
 
 .pokemons_wrapper{
-    background-image: url('/media/template_pokedex.png');
+    background-image: url('../media/template_pokedex.png');
     background-repeat: no-repeat;
     background-size: contain;
     height: 35vh;
@@ -691,17 +689,17 @@ background-color: #6A6A6A;
 #pokemon-cards {
     display: flex;
     flex-wrap: wrap;
-    /* justify-content: center; */
-    gap: 30px;
+    justify-content: center;
+    gap: 1rem;
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
 
 .pokemonCard {
-    background-image: url(/media/template_pokedex.png);
+    background-image: url('../media/template_pokedex.png');
     background-size: contain;
     background-repeat: no-repeat;
-    width: 200px;
+    width: 22vh;
     cursor: pointer;
 }
 .shiny {
