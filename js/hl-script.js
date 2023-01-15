@@ -2,19 +2,19 @@ let container = document.querySelector('.container');
 let url = 'https://pokeapi.co/api/v2/pokemon?limit=259';
 let pokedexWrapper = document.querySelector('#pokedex-wrapper');
 
-fetch(url)
-  .then((r) => r.json())
-  .then(async (d) => {
-    const pokemons = d.results;
+// fetch(url)
+//   .then((r) => r.json())
+//   .then(async (d) => {
+//     const pokemons = d.results;
 
-    for (const pokemon of pokemons) {
-      pokemon.data = await fetch(pokemon.url).then((response) =>
-        response.json()
-      );
-      // pokemons_data.push(pokemon.data);
-      // console.log (pokemons_data)
-    }
-  });
+//     for (const pokemon of pokemons) {
+//       pokemon.data = await fetch(pokemon.url).then((response) =>
+//         response.json()
+//       );
+//       // pokemons_data.push(pokemon.data);
+//       // console.log (pokemons_data)
+//     }
+//   });
 
 ////////////////////////////////
 
@@ -104,17 +104,6 @@ function renderPokemon(pokemon) {
     pokeWrapper.classList.add(type.type.name);
   })
   ;
-
-
-
-  // pokemon.data.sprites.versions.forEach((type) => {
-  //   let pokeGen = document.createElement('p');
-  //   pokeGen.innerHTML =
-  //     type.generations[0].toUpperCase() + type.generations.slice(1);
-  //   typeContainer.appendChild(pokeGen);
-  //   pokeWrapper.classList.add(type.generations);
-  // })
-
   pokedexContainer.appendChild(pokeWrapper);
 }
 
@@ -159,21 +148,6 @@ function getFilter() {
         });
       });
     });
-
-  // .then(function () {
-  //   let typeButton = document.querySelectorAll('.type_button');
-
-  //   typeButton.forEach((bouton) => {
-  //     bouton.addEventListener('click', (e) => {
-  //       let type_filtered = bouton.innerHTML;
-  //       filterPoke(pokemons_data, type_filtered);
-  //       //   for (const pokemonTest of pokemons_data){
-  //       //     console.log('patate', pokemonTest)
-
-  //       // }
-  //     });
-  //   });
-  // });
 }
 
 getFilter();
@@ -232,6 +206,9 @@ function pausing() {
   }
 }
 
+
+
+
 let gen1 = document.querySelector('#gen1');
 let gen2 = document.querySelector('#gen2');
 let gen3 = document.querySelector('#gen3');
@@ -248,27 +225,26 @@ let offset = 0;
 
 function fetchPokemons(gen) {
 
-  
+  console.log(gen)
   fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`)
   .then(response => response.json())
   .then(data => {
 
 
-
-
     data.results.forEach(pokemon => {
-          if (pokemon.url.includes(`generation/${gen}`)) {
+      // console.log(pokemon)
+          if (pokemon.url.includes(`/${gen}`)) {
             data.results.forEach((pokemon) => {
               renderPokemon(pokemon);
             });
           }
-      });
+      })
   });
 }
 allGen.forEach(function(genButton){
   genButton.addEventListener("click", function() {
       let gen = genButton.id.substring(3);
-      pokedexContainer.innerHTML = "";
+      // pokedexContainer.innerHTML = "";
       fetchPokemons(gen);
   });
 });
