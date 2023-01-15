@@ -44,6 +44,40 @@ h1 {
     z-index: 2;
   }
   
+.listing{
+    display: flex;
+    width: 310px;
+    height: auto;
+    background-color: #ffffff;
+    border: 2px #0b0b0c solid;
+    position: absolute;
+    text-align: left;
+    z-index: 200;
+    cursor: default;
+}
+.listing ul{
+    width: 308px;
+    
+}
+
+.listing ul li{
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+    color:rgb(29, 3, 8);
+    padding: 20%; 
+    border: 1px #0b0b0c solid;
+    
+}
+.listing ul li img{
+    width: 35%;
+    height: 35%;
+}
+.listing ul li p{
+    margin-top: 10px;
+    padding: 10px;
+    justify-items: center;
+}
 
 .buttonStyle, .pixel_button{
     align-items: center;
@@ -216,7 +250,6 @@ a {
     padding: 1rem 4rem;
     font-family: "pixel",monospace;
     font-weight: bold;
-    
 }
 
 
