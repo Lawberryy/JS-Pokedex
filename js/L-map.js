@@ -1,4 +1,4 @@
-    /*let zoom = 1;
+    let zoom = 1;
 
     const ZOOM_SPEED = 0.1;
     
@@ -10,7 +10,7 @@
             map.style.transform = `scale(${zoom -= ZOOM_SPEED})`;  }
         
     
-    }); */
+    });
 
 
     // TAB MAP 
