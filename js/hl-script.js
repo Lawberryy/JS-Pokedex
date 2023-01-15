@@ -1,6 +1,7 @@
 let container = document.querySelector('.container');
 let url = 'https://pokeapi.co/api/v2/pokemon?limit=259';
 let pokedexWrapper = document.querySelector('#pokedex-wrapper');
+let loader = document.querySelector('.loader-wrapper')
 
 // fetch(url)
 //   .then((r) => r.json())
@@ -18,6 +19,8 @@ let pokedexWrapper = document.querySelector('#pokedex-wrapper');
 
 ////////////////////////////////
 
+loader.style.display = "";
+
 // console.log(pokemons_data);
 
 function getPoke() {
@@ -33,7 +36,9 @@ function getPoke() {
       }
       
       pokemons.forEach((pokemon) => {
+        loader.style.display = "none";
         renderPokemon(pokemon);
+        
       });
     });
 }
