@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokedex</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="pokedex_body">
+    <!-- <div class="transition transition-1 is-active"></div> -->
+
+    <!-- the header -->
+
+    <header class="navbar">
+      <div>
+        <a href="index.html">
+          <button class="buttonStyle" id="quitButton">Quit</button>
+        </a>
+      </div>
+
+      <div class="search">
+        <form
+          id="poke-form"
+          name="poke-form"
+          data-name="poke Form"
+          method="get"
+          class="search__form"
+          abineguid="C148D6C27CEB43BEB12F648C3A624DEE"
+        >
+          <input
+            type="text"
+            class="search_input w-input"
+            maxlength="256"
+            name="name"
+            data-name="Name"
+            placeholder="Search a Pokemon"
+            id="name"
+          />
+          <!-- <div class="search_label">Use this input to search for any pokemon. In an instant.</div> -->
+        </form>
+      </div>
+      <div>
+        <a href="pokedex.html">
+          <button class="buttonStyle" id="pokedexButton">Pokedex</button>
+        </a>
+        <a href="L-index.html">
+          <button class="buttonStyle" id="mapButton">Map / Navigate ?</button>
+        </a>
+      </div>
+    </header>
+
+     <!-- filter -->
+
+    <section>
+      <h2>Filtering type :</h2>
+      <div class="filter_container"></div>
+    </section>
+
+    <section>
+      <h2>Filtering generation :</h2>
+      <div class="filter_gen_container">
+        <button id="gen1" class="buttonStyle">I</button>
+        <button id="gen2" class="buttonStyle">II</button>
+        <button id="gen3" class="buttonStyle">III</button>
+        <button id="gen4" class="buttonStyle">IV</button>
+        <button id="gen5" class="buttonStyle">V</button>
+        <button id="gen6" class="buttonStyle">VI</button>
+        <button id="gen7" class="buttonStyle">VII</button>
+        <button id="gen8" class="buttonStyle">VII</button>
+
+      </div>
+    </section>
+
+    <div id="pokedex">
+    <div id="list-pokemons">
+        <div id="pokemon-cards"></div>
+        <button id="btn-shiny" class="btn-shiny none" onclick="hideShiny()">Show shiny</button>
+        <div id="div-shiny" class="none"></div>
+    </div>
+    <div class="div-seeMore">
+      <input type="text" class="none howManyPokemon" id="in" placeholder="How many pokemon do you want to add?">
+      <div id="seeMorePokemon" onclick="GetPokemon()">
+        <span id="textBtn">See pokemon by default</span>
+        <img src="media/pokeball.svg" alt="img-pokeball" class="img-pokeball">    
+      </div>
+    </div>
+    <div class="info-bgm">
+      <p>Press 'Enter' to play the music</p>
+      <p>Press 'Space' to pause it</p>
+    </div>
+    </div>
+
+    <!-- <div class ="loader-wrapper">
+      <img src="/media/pikarun.gif" class="loader" alt="Pikachu run"></img>
+    </div> -->
+
+    <!-- container poke cards -->
+    <section id="pokedex-wrapper">
+      <div class="pokedex_container none"></div>
+    </section>
+
+    <script src="js/hl-script.js"></script>
+    <script src="js/script-sd.js"></script>
+  </body>
+</html>

@@ -180,12 +180,6 @@ a {
     width: auto;
 }
 
-
-#loading_text{
-    font-size: 4rem;
-    font-weight: bold;
-}
-
 .containDisplay{
     display: flex;
     justify-content: center;
